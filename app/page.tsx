@@ -1,197 +1,103 @@
-const officeAddress =
-  "No. 155 Kaiyuan Avenue, Xitang Town, Jiashan County, Zhejiang Province, China";
+import Link from "next/link";
 
-const offices = [
+const concepts = [
   {
-    city: "China",
-    name: "JIASHAN KAIDUN GARMENTS CO., LTD",
-    address: officeAddress,
+    number: "01",
+    eyebrow: "CLASSIC CARD",
+    title: "名片 + 保存按钮",
+    description: "先看到一张干净的商务名片，再点一次保存到通讯录。",
+    href: "/v1",
+    action: "查看第一版",
+    preview: "card",
   },
   {
-    city: "Egypt",
-    name: "VISKAI GARMENT ACCESSORIES EGYPT CO., LTD",
-    address: "Sikandar Park, Suez Canal Special Economic Zone, Egypt",
+    number: "02",
+    eyebrow: "DIGITAL PROFILE",
+    title: "完整电子名片",
+    description: "电话、邮件、网站、微信和办公室地址都能执行对应操作。",
+    href: "/v2",
+    action: "查看第二版",
+    preview: "profile",
   },
   {
-    city: "Hong Kong",
-    name: "BRILLIANT ACCESSORIES INTERNATIONAL COMPANY LIMITED",
-    address: "Flat A, 16/F, Manley House, 86 Canton Road, TST, Hong Kong",
+    number: "03",
+    eyebrow: "DIRECT VCARD",
+    title: "直接进入保存确认",
+    description: "不经过介绍页，直接把联系人资料交给手机系统，由用户确认。",
+    href: "/mike-lu.vcf",
+    action: "测试第三版",
+    preview: "contact",
   },
-  {
-    city: "New York",
-    name: "NEW YORK REPRESENTATIVE OFFICE",
-    address: "19 Brookbridge Road, Great Neck, NY 11021, United States",
-  },
-];
-
-const contactRows = [
-  {
-    mark: "CN",
-    label: "China mobile",
-    value: "+86 135 0683 9182",
-    href: "tel:+8613506839182",
-  },
-  {
-    mark: "HK",
-    label: "Hong Kong mobile",
-    value: "+852 9715 3535",
-    href: "tel:+85297153535",
-  },
-  {
-    mark: "TEL",
-    label: "Direct line",
-    value: "+86 573 8446 6850",
-    href: "tel:+8657384466850",
-    secondary: "+86 573 8446 5580",
-    secondaryHref: "tel:+8657384465580",
-  },
-  {
-    mark: "@",
-    label: "Email",
-    value: "mike@lu-dun.com",
-    href: "mailto:mike@lu-dun.com",
-  },
-  {
-    mark: "WEB",
-    label: "Website",
-    value: "www.lu-dun.com",
-    href: "http://www.lu-dun.com",
-    external: true,
-  },
-  {
-    mark: "WX",
-    label: "WeChat",
-    value: "ludun123321",
-  },
-];
-
-function Arrow() {
-  return <span className="row-arrow" aria-hidden="true">→</span>;
-}
+] as const;
 
 export default function Home() {
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    officeAddress,
-  )}`;
-
   return (
-    <main className="page-shell">
-      <article className="profile-card">
-        <header className="hero">
-          <div className="hero-orbit hero-orbit-one" />
-          <div className="hero-orbit hero-orbit-two" />
-          <div className="brand-mark" role="img" aria-label="LUDUN Group" />
-          <p className="eyebrow">LUDUN GROUP · DIGITAL CARD</p>
-          <h1>Mike Lu <span>陆建伟</span></h1>
-          <p className="role">General Manager</p>
-          <p className="company">JIASHAN KAIDUN GARMENTS CO., LTD</p>
-        </header>
-
-        <nav className="quick-actions" aria-label="Contact shortcuts">
-          <a href="tel:+8613506839182" className="quick-action">
-            <span className="quick-icon" aria-hidden="true">TEL</span>
-            <span>Call</span>
-          </a>
-          <a href="mailto:mike@lu-dun.com" className="quick-action">
-            <span className="quick-icon quick-icon-large" aria-hidden="true">@</span>
-            <span>Email</span>
-          </a>
-          <a href={mapUrl} target="_blank" rel="noreferrer" className="quick-action">
-            <span className="quick-icon" aria-hidden="true">LOC</span>
-            <span>Map</span>
-          </a>
-        </nav>
-
-        <div className="content">
-          <section className="section" aria-labelledby="contact-heading">
-            <div className="section-heading">
-              <p>CONTACT</p>
-              <h2 id="contact-heading">Get in touch</h2>
-            </div>
-            <div className="info-list">
-              {contactRows.map((row) => {
-                const content = (
-                  <>
-                    <span className="row-mark" aria-hidden="true">{row.mark}</span>
-                    <span className="row-copy">
-                      <span className="row-label">{row.label}</span>
-                      <span className="row-value">{row.value}</span>
-                      {row.secondary && (
-                        <span className="row-secondary">{row.secondary}</span>
-                      )}
-                    </span>
-                    {row.href && <Arrow />}
-                  </>
-                );
-
-                if (row.href) {
-                  return (
-                    <div className="info-row-group" key={row.label}>
-                      <a
-                        className="info-row"
-                        href={row.href}
-                        target={row.external ? "_blank" : undefined}
-                        rel={row.external ? "noreferrer" : undefined}
-                      >
-                        {content}
-                      </a>
-                      {row.secondaryHref && (
-                        <a className="secondary-link" href={row.secondaryHref}>
-                          Call second direct line
-                        </a>
-                      )}
-                    </div>
-                  );
-                }
-
-                return <div className="info-row" key={row.label}>{content}</div>;
-              })}
-            </div>
-          </section>
-
-          <section className="section" aria-labelledby="offices-heading">
-            <div className="section-heading">
-              <p>GLOBAL PRESENCE</p>
-              <h2 id="offices-heading">Our offices</h2>
-            </div>
-            <div className="office-list">
-              {offices.map((office, index) => (
-                <details className="office" key={office.city} open={index === 0}>
-                  <summary>
-                    <span className="city-index">0{index + 1}</span>
-                    <span className="city-name">{office.city}</span>
-                    <span className="summary-plus" aria-hidden="true">+</span>
-                  </summary>
-                  <div className="office-details">
-                    <strong>{office.name}</strong>
-                    <p>{office.address}</p>
-                    {index === 0 && (
-                      <a href={mapUrl} target="_blank" rel="noreferrer">
-                        Open in maps <span aria-hidden="true">↗</span>
-                      </a>
-                    )}
-                  </div>
-                </details>
-              ))}
-            </div>
-          </section>
-
-          <footer className="brand-footer">
-            <span>China</span><span>Egypt</span><span>Hong Kong</span><span>New York</span>
-          </footer>
+    <main className="concept-shell">
+      <header className="concept-hero">
+        <div className="concept-brand">
+          <span className="mini-brand-mark" aria-hidden="true">LD</span>
+          <span>LUDUN GROUP</span>
         </div>
+        <p className="concept-kicker">DIGITAL BUSINESS CARD · 3 CONCEPTS</p>
+        <h1>同一份联系方式，<br />三种打开方式。</h1>
+        <p className="concept-intro">
+          请选择一种体验。第三版会直接交给手机的联系人系统处理，
+          不会显示中间网页。
+        </p>
+      </header>
 
-        <div className="save-dock">
-          <a className="save-button" href="/mike-lu.vcf">
-            <span className="save-plus" aria-hidden="true">＋</span>
-            <span>
-              <strong>Save to contacts</strong>
-              <small>保存到通讯录</small>
-            </span>
-          </a>
-          <p>Your phone will prefill the details. Please confirm to save.</p>
-        </div>
-      </article>
+      <section className="concept-grid" aria-label="电子名片的三种方案">
+        {concepts.map((concept) => (
+          <article className="concept-card" key={concept.number}>
+            <div className={`concept-preview preview-${concept.preview}`} aria-hidden="true">
+              {concept.preview === "card" && (
+                <div className="preview-business-card">
+                  <span>Mike Lu</span>
+                  <small>GENERAL MANAGER</small>
+                  <i>LUDUN GROUP</i>
+                </div>
+              )}
+              {concept.preview === "profile" && (
+                <div className="preview-phone-card">
+                  <span className="preview-avatar">LD</span>
+                  <b>Mike Lu</b>
+                  <small>Call · Email · Map</small>
+                  <i /><i /><i />
+                </div>
+              )}
+              {concept.preview === "contact" && (
+                <div className="preview-system-contact">
+                  <span className="preview-avatar">ML</span>
+                  <b>Mike Lu</b>
+                  <small>New Contact</small>
+                  <em>Confirm</em>
+                </div>
+              )}
+            </div>
+
+            <div className="concept-copy">
+              <div className="concept-number">{concept.number}</div>
+              <p>{concept.eyebrow}</p>
+              <h2>{concept.title}</h2>
+              <span>{concept.description}</span>
+            </div>
+
+            {concept.preview === "contact" ? (
+              <a className="concept-link" href={concept.href}>
+                {concept.action}<span aria-hidden="true">→</span>
+              </a>
+            ) : (
+              <Link className="concept-link" href={concept.href}>
+                {concept.action}<span aria-hidden="true">→</span>
+              </Link>
+            )}
+          </article>
+        ))}
+      </section>
+
+      <p className="concept-footnote">
+        三版使用同一份 Mike Lu 联系人资料，后续可分别生成三个二维码进行真机对比。
+      </p>
     </main>
   );
 }

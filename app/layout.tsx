@@ -3,15 +3,20 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://card.lu-dun.com"),
-  title: "Mike Lu | LUDUN Group",
-  description: "Digital business card for Mike Lu, General Manager at LUDUN Group.",
+  title: "Three Digital Card Concepts | LUDUN Group",
+  description: "Compare three digital business card experiences for Mike Lu.",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   icons: {
     icon: "/ludun-logo.png",
     shortcut: "/ludun-logo.png",
   },
   openGraph: {
-    title: "Mike Lu | LUDUN Group",
-    description: "Connect with Mike Lu and save his contact details in one tap.",
+    title: "Three Digital Card Concepts | LUDUN Group",
+    description: "Compare three ways to view, use, and save Mike Lu's contact details.",
     type: "profile",
     images: [
       {
@@ -24,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mike Lu | LUDUN Group",
-    description: "Connect with Mike Lu and save his contact details in one tap.",
+    title: "Three Digital Card Concepts | LUDUN Group",
+    description: "Compare three ways to view, use, and save Mike Lu's contact details.",
     images: ["/og.png"],
   },
 };
