@@ -80,9 +80,7 @@ export default function Home() {
         <header className="hero">
           <div className="hero-orbit hero-orbit-one" />
           <div className="hero-orbit hero-orbit-two" />
-          <div className="brand-mark">
-            <img src="/ludun-logo.png" alt="LUDUN Group" />
-          </div>
+          <div className="brand-mark" role="img" aria-label="LUDUN Group" />
           <p className="eyebrow">LUDUN GROUP · DIGITAL CARD</p>
           <h1>Mike Lu <span>陆建伟</span></h1>
           <p className="role">General Manager</p>
