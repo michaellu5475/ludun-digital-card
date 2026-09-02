@@ -125,6 +125,17 @@ button {
   backdrop-filter: blur(12px);
 }
 
+.concept-card-anchor {
+  cursor: pointer;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.concept-card-anchor:hover {
+  border-color: rgba(25, 49, 37, 0.24);
+  box-shadow: 0 28px 68px rgba(16, 37, 27, 0.14);
+  transform: translateY(-3px);
+}
+
 .concept-preview {
   display: grid;
   min-height: 225px;

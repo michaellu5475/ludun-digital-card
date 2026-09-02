@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const concepts = [
   {
     number: "01",
@@ -23,9 +21,9 @@ const concepts = [
     number: "03",
     eyebrow: "DIRECT VCARD",
     title: "直接进入保存确认",
-    description: "不经过介绍页，直接把联系人资料交给手机系统，由用户确认。",
+    description: "请用手机系统浏览器测试：iPhone 通常会打开联系人确认页；电脑会下载联系人文件。",
     href: "/mike-lu.vcf",
-    action: "测试第三版",
+    action: "用手机打开联系人",
     preview: "contact",
   },
 ] as const;
@@ -48,7 +46,11 @@ export default function Home() {
 
       <section className="concept-grid" aria-label="电子名片的三种方案">
         {concepts.map((concept) => (
-          <article className="concept-card" key={concept.number}>
+          <a
+            className="concept-card concept-card-anchor"
+            href={concept.href}
+            key={concept.number}
+          >
             <div className={`concept-preview preview-${concept.preview}`} aria-hidden="true">
               {concept.preview === "profile" && (
                 <div className="preview-phone-card">
@@ -75,16 +77,10 @@ export default function Home() {
               <span>{concept.description}</span>
             </div>
 
-            {concept.preview === "contact" ? (
-              <a className="concept-link" href={concept.href}>
-                {concept.action}<span aria-hidden="true">→</span>
-              </a>
-            ) : (
-              <Link className="concept-link" href={concept.href}>
-                {concept.action}<span aria-hidden="true">→</span>
-              </Link>
-            )}
-          </article>
+            <span className="concept-link">
+              {concept.action}<span aria-hidden="true">→</span>
+            </span>
+          </a>
         ))}
       </section>
 

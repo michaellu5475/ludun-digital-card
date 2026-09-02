@@ -39,6 +39,10 @@ test("renders the three-version chooser", async () => {
   assert.match(html, /href="\/v1"/);
   assert.match(html, /href="\/v2"/);
   assert.match(html, /href="\/mike-lu\.vcf"/);
+  assert.equal(
+    (html.match(/<a class="concept-card concept-card-anchor" href=/g) ?? []).length,
+    3,
+  );
   assert.match(html, /名片 \+ 保存按钮/);
   assert.match(html, /完整电子名片/);
   assert.match(html, /直接进入保存确认/);
