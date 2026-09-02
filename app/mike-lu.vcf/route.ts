@@ -5,7 +5,7 @@ export async function GET() {
     headers: {
       "Content-Type": "text/vcard; charset=utf-8",
       "Content-Disposition": 'inline; filename="mike-lu.vcf"',
-      "Cache-Control": "public, max-age=300, must-revalidate",
+      "Cache-Control": "no-store, max-age=0",
     },
   });
 }

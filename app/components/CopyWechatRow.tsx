@@ -7,12 +7,20 @@ function copyWithFallback(value: string) {
   textarea.value = value;
   textarea.setAttribute("readonly", "");
   textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
   textarea.style.opacity = "0";
   document.body.appendChild(textarea);
-  textarea.select();
-  const copied = document.execCommand("copy");
-  document.body.removeChild(textarea);
-  return copied;
+
+  try {
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, value.length);
+    return document.execCommand("copy");
+  } catch {
+    return false;
+  } finally {
+    textarea.remove();
+  }
 }
 
 export function CopyWechatRow({ value }: { value: string }) {
@@ -25,16 +33,19 @@ export function CopyWechatRow({ value }: { value: string }) {
   }, [status]);
 
   async function copyWechat() {
-    try {
-      if (navigator.clipboard?.writeText) {
+    let copied = false;
+
+    if (navigator.clipboard?.writeText) {
+      try {
         await navigator.clipboard.writeText(value);
-      } else if (!copyWithFallback(value)) {
-        throw new Error("Copy unavailable");
+        copied = true;
+      } catch {
+        copied = false;
       }
-      setStatus("copied");
-    } catch {
-      setStatus("failed");
     }
+
+    if (!copied) copied = copyWithFallback(value);
+    setStatus(copied ? "copied" : "failed");
   }
 
   const action =
