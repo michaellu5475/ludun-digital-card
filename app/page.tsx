@@ -50,13 +50,6 @@ export default function Home() {
         {concepts.map((concept) => (
           <article className="concept-card" key={concept.number}>
             <div className={`concept-preview preview-${concept.preview}`} aria-hidden="true">
-              {concept.preview === "card" && (
-                <div className="preview-business-card">
-                  <span>Mike Lu</span>
-                  <small>GENERAL MANAGER</small>
-                  <i>LUDUN GROUP</i>
-                </div>
-              )}
               {concept.preview === "profile" && (
                 <div className="preview-phone-card">
                   <span className="preview-avatar">LD</span>

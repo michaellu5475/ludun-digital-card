@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { person } from "../lib/contact";
 
 export const metadata: Metadata = {
   title: "Version 1 — Classic Card | Mike Lu",
@@ -18,35 +18,18 @@ export default function VersionOne() {
       </nav>
 
       <section className="simple-stage">
-        <article className="business-card" aria-label="Mike Lu 的商务名片">
-          <div className="business-card-accent" />
-          <header className="business-card-head">
-            <div className="business-card-name">
-              <h1>{person.name} <span lang="zh-CN">{person.chineseName}</span></h1>
-              <p>{person.role}</p>
-            </div>
-            <div className="business-logo" aria-label="LUDUN Group">
-              <span>LD</span>
-              <small>LUDUN</small>
-            </div>
-          </header>
-
-          <div className="business-card-body">
-            <div className="business-details">
-              <p><span>Mobile</span> +86 135 0683 9182</p>
-              <p><span>Email</span> {person.email}</p>
-              <p><span>Web</span> {person.websiteLabel}</p>
-            </div>
-            <div className="business-company">
-              <strong>{person.company}</strong>
-              <p>No. 155 Kaiyuan Avenue, Xitang Town, Jiashan, Zhejiang, China</p>
-            </div>
-          </div>
-
-          <footer className="business-card-footer">
-            <span>China</span><span>Egypt</span><span>Hong Kong</span><span>New York</span>
-          </footer>
-        </article>
+        <div className="uploaded-card">
+          <Image
+            className="uploaded-card-image"
+            src="/mike-business-card.jpg"
+            width={3169}
+            height={1063}
+            sizes="(max-width: 960px) calc(100vw - 24px), 920px"
+            alt="Mike Lu 陆建伟的原始双面商务名片"
+            priority
+            unoptimized
+          />
+        </div>
 
         <div className="simple-save-panel">
           <a className="save-button simple-save-button" href="/mike-lu.vcf">

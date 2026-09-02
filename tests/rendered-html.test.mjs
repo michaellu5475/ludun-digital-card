@@ -50,8 +50,8 @@ test("renders version one as a classic card with one save action", async () => {
 
   assert.match(html, /Mike Lu/);
   assert.match(html, /陆建伟/);
-  assert.match(html, /General Manager/);
-  assert.match(html, /class="business-card"/);
+  assert.match(html, /src="\/mike-business-card\.jpg"/);
+  assert.match(html, /class="uploaded-card-image"/);
   assert.match(html, /href="\/mike-lu\.vcf"/);
   assert.match(html, /Save to contacts/);
 });
