@@ -7,7 +7,7 @@ function Arrow() {
 }
 
 export function DigitalCard({ contact }: { contact: Contact }) {
-  const primaryMapUrl = amapHref(offices[0].address);
+  const primaryMapUrl = mapHref(offices[0].address);
 
   return (
     <main className="page-shell">
@@ -44,7 +44,7 @@ export function DigitalCard({ contact }: { contact: Contact }) {
             target="_blank"
             rel="noreferrer"
             className="quick-action"
-            aria-label="Open China office in Amap"
+            aria-label="Open China office in Google Maps"
           >
             <span className="quick-icon" aria-hidden="true">LOC</span>
             <span>Map</span>

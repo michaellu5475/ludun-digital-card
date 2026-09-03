@@ -68,6 +68,7 @@ for (const contact of contacts) {
     assert.match(html, new RegExp(`href="${escapeRegex(basePath)}/${escapeRegex(contact.vcard)}"`));
     assert.match(html, new RegExp(`rel="canonical" href="${escapeRegex(pageUrl)}"`));
     assert.match(html, new RegExp(`property="og:url" content="${escapeRegex(pageUrl)}"`));
+    assert.match(html, /aria-label="Open China office in Google Maps"/);
     assert.doesNotMatch(html, /chatgpt\.site/);
     assert.doesNotMatch(html, /iPhone Safari|Android／华为|微信内无法打开/);
     assert.doesNotMatch(html, /(?:href|src)="\/(?!ludun-digital-card(?:\/|"))/);

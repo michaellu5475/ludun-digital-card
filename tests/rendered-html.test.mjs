@@ -296,7 +296,7 @@ function assertContactCard(html, contact, canonicalPath = contact.pagePath) {
   }
 
   assert.equal((html.match(/<details\b/g) ?? []).length, 4);
-  for (const office of officeContracts) {
+  officeContracts.forEach((office, index) => {
     assert.match(html, new RegExp(escapeRegex(office.name)));
     assert.match(html, new RegExp(escapeRegex(office.address)));
 
@@ -304,14 +304,18 @@ function assertContactCard(html, contact, canonicalPath = contact.pagePath) {
       "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent(office.address)
     ).replaceAll("&", "&amp;");
-    assert.equal(countOccurrences(html, 'href="' + googleHref + '"'), 1);
-  }
+    assert.equal(
+      countOccurrences(html, 'href="' + googleHref + '"'),
+      index === 0 ? 2 : 1,
+    );
+  });
   const amapHref = (
     "https://uri.amap.com/search?keyword=" +
     encodeURIComponent(officeContracts[0].address) +
     "&view=map&src=ludun.digital.card"
   ).replaceAll("&", "&amp;");
-  assert.equal(countOccurrences(html, 'href="' + amapHref + '"'), 2);
+  assert.equal(countOccurrences(html, 'href="' + amapHref + '"'), 1);
+  assert.match(html, /aria-label="Open China office in Google Maps"/);
   assert.doesNotMatch(html, /\bdownload(?:=|\s|>)/i);
   assert.doesNotMatch(html, /iPhone Safari|Android／华为|微信内无法打开/);
 
