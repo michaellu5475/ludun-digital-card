@@ -495,14 +495,6 @@ button {
   font-size: 11px;
 }
 
-.save-dock p {
-  margin: 8px 0 0;
-  color: #626a65;
-  font-size: 11px;
-  line-height: 1.55;
-  text-align: center;
-}
-
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {

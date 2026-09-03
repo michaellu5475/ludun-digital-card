@@ -313,6 +313,7 @@ function assertContactCard(html, contact, canonicalPath = contact.pagePath) {
   ).replaceAll("&", "&amp;");
   assert.equal(countOccurrences(html, 'href="' + amapHref + '"'), 2);
   assert.doesNotMatch(html, /\bdownload(?:=|\s|>)/i);
+  assert.doesNotMatch(html, /iPhone Safari|Android／华为|微信内无法打开/);
 
   for (const anchor of html.match(/<a\b[^>]*href="https?:[^>]*>/g) ?? []) {
     assert.match(anchor, /target="_blank"/);

@@ -141,10 +141,6 @@ export function DigitalCard({ contact }: { contact: Contact }) {
               <small>保存到通讯录</small>
             </span>
           </a>
-          <p lang="zh-CN">
-            iPhone Safari 通常会显示联系人确认页；Android／华为可能先下载联系人文件。
-            若没有自动打开，请打开下载的 VCF 文件；微信内无法打开时，请使用系统浏览器。
-          </p>
         </div>
       </article>
     </main>

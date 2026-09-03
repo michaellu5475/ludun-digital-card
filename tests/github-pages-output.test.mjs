@@ -69,6 +69,7 @@ for (const contact of contacts) {
     assert.match(html, new RegExp(`rel="canonical" href="${escapeRegex(pageUrl)}"`));
     assert.match(html, new RegExp(`property="og:url" content="${escapeRegex(pageUrl)}"`));
     assert.doesNotMatch(html, /chatgpt\.site/);
+    assert.doesNotMatch(html, /iPhone Safari|Android／华为|微信内无法打开/);
     assert.doesNotMatch(html, /(?:href|src)="\/(?!ludun-digital-card(?:\/|"))/);
 
     for (const other of contacts.filter(({ slug }) => slug !== contact.slug)) {
