@@ -1,12 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { absolutePageUrl, absoluteSiteUrl, publicSiteUrl } from "./lib/site-url";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ludun-mike-digital-card.mike020124.chatgpt.site"),
+  metadataBase: new URL(`${publicSiteUrl}/`),
   title: "Mike Lu | LUDUN Group Digital Business Card",
   description: "Call, email, find an office, or save Mike Lu's contact details.",
   alternates: {
-    canonical: "/",
+    canonical: absolutePageUrl("/"),
   },
   formatDetection: {
     telephone: false,
@@ -14,17 +17,17 @@ export const metadata: Metadata = {
     address: false,
   },
   icons: {
-    icon: "/ludun-logo.png",
-    shortcut: "/ludun-logo.png",
+    icon: absoluteSiteUrl("/ludun-logo.png"),
+    shortcut: absoluteSiteUrl("/ludun-logo.png"),
   },
   openGraph: {
     title: "Mike Lu | LUDUN Group Digital Business Card",
     description: "Call, email, find an office, or save Mike Lu's contact details.",
     type: "profile",
-    url: "/",
+    url: absolutePageUrl("/"),
     images: [
       {
-        url: "/og.png",
+        url: absoluteSiteUrl("/og.png"),
         width: 1672,
         height: 941,
         alt: "LUDUN Digital Business Card",
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mike Lu | LUDUN Group Digital Business Card",
     description: "Call, email, find an office, or save Mike Lu's contact details.",
-    images: ["/og.png"],
+    images: [absoluteSiteUrl("/og.png")],
   },
 };
 

@@ -1,5 +1,6 @@
 import { CopyWechatRow } from "./CopyWechatRow";
 import { amapHref, mapHref, offices, type Contact } from "../lib/contact";
+import { publicPath } from "../lib/site-url";
 
 function Arrow() {
   return <span className="row-arrow" aria-hidden="true">→</span>;
@@ -133,7 +134,7 @@ export function DigitalCard({ contact }: { contact: Contact }) {
         </div>
 
         <div className="save-dock">
-          <a className="save-button" href={`/${contact.vcardFilename}`}>
+          <a className="save-button" href={publicPath(contact.vcardFilename)}>
             <span className="save-plus" aria-hidden="true">＋</span>
             <span>
               <strong>Save to contacts</strong>

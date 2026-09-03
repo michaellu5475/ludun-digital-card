@@ -381,6 +381,13 @@ test("keeps /v2 as a compatible alias of Mike's final card", async () => {
   assertContactCard(await htmlFor("/v2"), contactContracts[0], "/");
 });
 
+test("renders Mike at the dedicated /mike route", async () => {
+  const html = await htmlFor("/mike");
+  assertContactCard(html, contactContracts[0], "/mike");
+  assert.doesNotMatch(html, /property="og:image"/);
+  assert.doesNotMatch(html, /name="twitter:image"/);
+});
+
 test("keeps retired versions unavailable", async () => {
   for (const path of ["/v1", "/v3"]) {
     const response = await render(path);

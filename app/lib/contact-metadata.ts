@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Contact } from "./contact";
+import { absolutePageUrl } from "./site-url";
 
 export function contactMetadata(contact: Contact, pathname: string): Metadata {
   const title = `${contact.name} | LUDUN Group Digital Business Card`;
@@ -8,12 +9,12 @@ export function contactMetadata(contact: Contact, pathname: string): Metadata {
   return {
     title,
     description,
-    alternates: { canonical: pathname },
+    alternates: { canonical: absolutePageUrl(pathname) },
     openGraph: {
       title,
       description,
       type: "profile",
-      url: pathname,
+      url: absolutePageUrl(pathname),
       images: [],
     },
     twitter: {
