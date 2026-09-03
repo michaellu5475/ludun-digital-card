@@ -8,6 +8,7 @@ function Arrow() {
 
 export function DigitalCard({ contact }: { contact: Contact }) {
   const primaryMapUrl = mapHref(offices[0].address);
+  const logoUrl = publicPath("ludun-logo.png");
 
   return (
     <main className="page-shell">
@@ -15,7 +16,12 @@ export function DigitalCard({ contact }: { contact: Contact }) {
         <header className="hero">
           <div className="hero-orbit hero-orbit-one" />
           <div className="hero-orbit hero-orbit-two" />
-          <div className="brand-mark" role="img" aria-label="LUDUN Group" />
+          <div
+            className="brand-mark"
+            role="img"
+            aria-label="LUDUN Group"
+            style={{ backgroundImage: `url("${logoUrl}")` }}
+          />
           <p className="eyebrow">LUDUN GROUP · DIGITAL CARD</p>
           <h1>{contact.name} <span lang="zh-CN">{contact.chineseName}</span></h1>
           <p className="role">{contact.role}</p>

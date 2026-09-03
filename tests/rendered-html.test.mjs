@@ -250,6 +250,8 @@ function assertContactCard(html, contact, canonicalPath = contact.pagePath) {
   assert.match(html, new RegExp(contact.chineseName));
   assert.match(html, new RegExp(escapeRegex(contact.role)));
   assert.match(html, /JIASHAN KAIDUN GARMENTS CO\.,LTD/);
+  assert.match(html, /aria-label="LUDUN Group"/);
+  assert.match(html, /background-image:url\(&quot;\/ludun-logo\.png&quot;\)/);
 
   contact.phoneHrefs.forEach((href, index) => {
     assert.equal(

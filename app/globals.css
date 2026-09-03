@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #17211c;
-  --muted: #68716c;
+  --ink: #17243a;
+  --muted: #68778d;
   --paper: #ffffff;
-  --canvas: #eef2ef;
-  --forest: #193125;
-  --forest-deep: #10251b;
-  --gold: #d8c66d;
-  --gold-soft: #f4edc9;
-  --line: #e5e9e6;
+  --canvas: #edf4fb;
+  --blue: #5f84c5;
+  --navy: #1e477d;
+  --navy-deep: #102f5a;
+  --blue-soft: #e9f2ff;
+  --line: #dfe8f3;
 }
 
 * {
@@ -23,8 +23,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 12% 8%, rgba(216, 198, 109, 0.18), transparent 30rem),
-    radial-gradient(circle at 88% 60%, rgba(25, 49, 37, 0.12), transparent 32rem),
+    radial-gradient(circle at 12% 8%, rgba(122, 158, 214, 0.24), transparent 30rem),
+    radial-gradient(circle at 88% 60%, rgba(52, 94, 154, 0.12), transparent 32rem),
     var(--canvas);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -53,9 +53,9 @@ button {
   margin: 0 auto;
   overflow: visible;
   background: var(--paper);
-  border: 1px solid rgba(25, 49, 37, 0.08);
+  border: 1px solid rgba(30, 71, 125, 0.08);
   border-radius: 28px;
-  box-shadow: 0 28px 80px rgba(14, 33, 24, 0.15);
+  box-shadow: 0 28px 80px rgba(16, 47, 90, 0.15);
 }
 
 .hero {
@@ -67,10 +67,10 @@ button {
   border-radius: 27px 27px 0 0;
   text-align: center;
   background: linear-gradient(
-    155deg,
-    rgba(255, 255, 255, 0.96),
-    rgba(236, 244, 239, 0.86) 46%,
-    rgba(218, 232, 224, 0.96)
+    180deg,
+    #6f91d0 0%,
+    #abc4e7 47%,
+    #edf6fc 100%
   );
 }
 
@@ -80,15 +80,15 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 6px;
+  height: 2px;
   content: "";
-  background: linear-gradient(90deg, var(--gold), var(--forest), var(--gold));
+  background: linear-gradient(90deg, transparent, rgba(52, 94, 154, 0.34), transparent);
 }
 
 .hero-orbit {
   position: absolute;
   z-index: -1;
-  border: 1px solid rgba(25, 49, 37, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
 }
 
@@ -107,42 +107,22 @@ button {
 }
 
 .brand-mark {
-  display: flex;
-  width: 116px;
-  height: 138px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 3px;
+  width: 158px;
+  height: 130px;
   margin: 0 auto 22px;
-  padding: 9px;
   overflow: hidden;
-  color: var(--gold);
-  background: var(--forest);
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   border: 5px solid #fff;
-  border-radius: 30px;
-  box-shadow: 0 14px 38px rgba(16, 37, 27, 0.2);
-}
-
-.brand-mark::before {
-  content: "LD";
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.12em;
-}
-
-.brand-mark::after {
-  content: "LUDUN";
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  border-radius: 32px;
+  box-shadow: 0 14px 38px rgba(16, 47, 90, 0.2);
 }
 
 .eyebrow {
   margin: 0 0 10px;
-  color: #58634f;
+  color: #315787;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -150,7 +130,7 @@ button {
 
 .hero h1 {
   margin: 0;
-  color: var(--forest-deep);
+  color: var(--navy-deep);
   font-size: 42px;
   font-size: clamp(32px, 8vw, 42px);
   line-height: 1.1;
@@ -165,7 +145,7 @@ button {
 
 .role {
   margin: 13px 0 8px;
-  color: var(--forest);
+  color: var(--navy-deep);
   font-size: 19px;
   font-weight: 650;
 }
@@ -189,9 +169,9 @@ button {
   margin: -30px auto 0;
   padding: 17px 12px 15px;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(25, 49, 37, 0.08);
+  border: 1px solid rgba(30, 71, 125, 0.09);
   border-radius: 20px;
-  box-shadow: 0 14px 36px rgba(16, 37, 27, 0.12);
+  box-shadow: 0 14px 36px rgba(16, 47, 90, 0.13);
   backdrop-filter: blur(14px);
 }
 
@@ -202,7 +182,7 @@ button {
   justify-content: center;
   flex-direction: column;
   gap: 8px;
-  color: var(--forest);
+  color: var(--navy-deep);
   font-size: 12px;
   font-weight: 750;
   border-radius: 14px;
@@ -210,7 +190,7 @@ button {
 }
 
 .quick-action:hover {
-  background: #f3f7f4;
+  background: #f2f7fd;
   transform: translateY(-2px);
 }
 
@@ -225,8 +205,8 @@ button {
   width: 40px;
   height: 40px;
   place-items: center;
-  color: var(--gold-soft);
-  background: var(--forest);
+  color: #fff;
+  background: var(--navy-deep);
   border-radius: 50%;
   font-size: 9px;
   font-weight: 900;
@@ -252,7 +232,7 @@ button {
 
 .section-heading p {
   margin: 0 0 4px;
-  color: #66581f;
+  color: var(--blue);
   font-size: 10px;
   font-weight: 850;
   letter-spacing: 0.18em;
@@ -260,7 +240,7 @@ button {
 
 .section-heading h2 {
   margin: 0;
-  color: var(--forest-deep);
+  color: var(--navy-deep);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 27px;
   font-weight: 500;
@@ -292,7 +272,7 @@ button {
 
 .info-row:hover,
 .info-row:focus-visible {
-  background: #f6f8f6;
+  background: #f4f8fd;
 }
 
 .info-row + .info-row {
@@ -305,8 +285,8 @@ button {
   height: 42px;
   flex: 0 0 42px;
   place-items: center;
-  color: var(--forest);
-  background: #edf3ef;
+  color: var(--navy);
+  background: var(--blue-soft);
   border-radius: 13px;
   font-size: 9px;
   font-weight: 900;
@@ -338,12 +318,12 @@ button {
 }
 
 .row-arrow {
-  color: #66706a;
+  color: #718096;
   font-size: 18px;
 }
 
 .row-hint {
-  color: #66581f;
+  color: var(--blue);
   font-size: 10px;
   font-weight: 760;
 }
@@ -368,20 +348,20 @@ button {
 }
 
 .city-index {
-  color: #66581f;
+  color: var(--blue);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 13px;
 }
 
 .city-name {
   flex: 1;
-  color: var(--forest-deep);
+  color: var(--navy-deep);
   font-size: 16px;
   font-weight: 780;
 }
 
 .summary-plus {
-  color: #78837c;
+  color: #718096;
   font-size: 23px;
   font-weight: 300;
   transition: transform 160ms ease;
@@ -398,7 +378,7 @@ button {
 
 .office-details strong {
   display: block;
-  color: var(--forest);
+  color: var(--navy);
   font-size: 11px;
   line-height: 1.45;
   letter-spacing: 0.03em;
@@ -414,7 +394,7 @@ button {
 .office-details a {
   display: inline-flex;
   margin-top: 12px;
-  color: #625518;
+  color: var(--navy);
   font-size: 12px;
   font-weight: 800;
 }
@@ -430,7 +410,7 @@ button {
   justify-content: space-between;
   gap: 12px;
   padding: 34px 4px 28px;
-  color: #626a65;
+  color: #68778d;
   font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.04em;
@@ -443,7 +423,7 @@ button {
   padding: 13px 18px 12px;
   padding: 13px 18px calc(12px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.92);
-  border-top: 1px solid rgba(25, 49, 37, 0.08);
+  border-top: 1px solid rgba(30, 71, 125, 0.08);
   border-radius: 0 0 27px 27px;
   backdrop-filter: blur(18px);
 }
@@ -456,14 +436,14 @@ button {
   gap: 14px;
   padding: 10px 18px;
   color: #fff;
-  background: var(--forest-deep);
+  background: var(--navy-deep);
   border-radius: 16px;
-  box-shadow: 0 12px 26px rgba(16, 37, 27, 0.2);
+  box-shadow: 0 12px 26px rgba(16, 47, 90, 0.22);
   transition: transform 160ms ease, background 160ms ease;
 }
 
 .save-button:hover {
-  background: #1c3b2b;
+  background: var(--navy);
   transform: translateY(-1px);
 }
 
@@ -472,8 +452,8 @@ button {
   width: 36px;
   height: 36px;
   place-items: center;
-  color: var(--forest-deep);
-  background: var(--gold);
+  color: var(--navy-deep);
+  background: #9dbbe5;
   border-radius: 50%;
   font-size: 22px;
 }
@@ -491,14 +471,14 @@ button {
 }
 
 .save-button small {
-  color: #dce5df;
+  color: #dce9f8;
   font-size: 11px;
 }
 
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 3px solid rgba(216, 198, 109, 0.9);
+  outline: 3px solid rgba(95, 132, 197, 0.9);
   outline-offset: 3px;
 }
 
